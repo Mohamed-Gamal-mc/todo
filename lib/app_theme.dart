@@ -20,6 +20,18 @@ class AppTheme {
         showSelectedLabels: false,
         showUnselectedLabels: false,
       ),
+      textTheme: TextTheme(
+        titleMedium: TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.bold,
+          color: primary,
+        ),
+        titleSmall: TextStyle(
+          fontSize: 14,
+          fontWeight: FontWeight.w400,
+          color: gray,
+        ),
+      ),
       floatingActionButtonTheme: FloatingActionButtonThemeData(
           backgroundColor: primary,
           foregroundColor: white,
