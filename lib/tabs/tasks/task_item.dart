@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:todo/app_theme.dart';
+import 'package:todo/models/task_model.dart';
 
 class TaskItem extends StatefulWidget {
-  static const String routName = 'TaskItem';
+  TaskModel task;
+  TaskItem({required this.task});
 
   @override
   State<TaskItem> createState() => _TaskItemState();
@@ -40,14 +42,13 @@ class _TaskItemState extends State<TaskItem> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   _onPressed
-                      ? Text('Play basket ball',
+                      ? Text(widget.task.title,
                           style: TextStyle(
                               color: AppTheme.green,
                               fontSize: 18,
                               fontWeight: FontWeight.bold))
-                      : Text('Play basket ball', style: textTheme.titleMedium),
-                  Text('this is the task discribtion',
-                      style: textTheme.titleSmall),
+                      : Text(widget.task.title, style: textTheme.titleMedium),
+                  Text(widget.task.discreption, style: textTheme.titleSmall),
                 ],
               ),
             ),

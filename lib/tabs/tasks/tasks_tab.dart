@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:todo/tabs/tasks/add_task_bottom_sheet.dart';
 import 'package:todo/tabs/tasks/task_item.dart';
 import 'package:easy_date_timeline/easy_date_timeline.dart';
+import 'package:todo/models/task_model.dart';
 
 class TasksTab extends StatelessWidget {
   static const String routName = 'TaskTab';
   @override
   Widget build(BuildContext context) {
+    List<TaskModel> tasks = List.generate(
+        10,
+        (index) => (TaskModel(
+            title: 'Task # ${index + 1} title',
+            discreption: 'Task #${index + 1} discreption ',
+            date: DateTime.now())));
     return SafeArea(
       child: Column(
         children: [
@@ -18,8 +26,8 @@ class TasksTab extends StatelessWidget {
           Expanded(
               child: ListView.builder(
             padding: EdgeInsets.only(top: 30),
-            itemBuilder: (_, index) => TaskItem(),
-            itemCount: 10,
+            itemBuilder: (_, index) => TaskItem(task: tasks[index]),
+            itemCount: tasks.length,
           ))
         ],
       ),

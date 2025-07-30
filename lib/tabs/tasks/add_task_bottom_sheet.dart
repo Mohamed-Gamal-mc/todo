@@ -5,6 +5,8 @@ import 'package:todo/tabs/tasks/defult_text_form_field.dart';
 
 class TaskBottomSheet extends StatefulWidget {
   static const String routeName = 'TaskBottomSheet';
+  String discrebtion = '';
+  String title = '';
 
   @override
   State<TaskBottomSheet> createState() => _TaskBottomSheetState();
@@ -84,6 +86,10 @@ class _TaskBottomSheetState extends State<TaskBottomSheet> {
                     label: 'Submit',
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
+                        widget.discrebtion = discrebtionController.text;
+                        widget.title = titleController.text;
+                        print(widget.discrebtion);
+                        print(widget.title);
                         addTask();
                       }
                     })
